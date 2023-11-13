@@ -9,13 +9,8 @@ const uploadImage = (imageName) => {
     uploadBytes(storageRef, file).then((snapshot) => {
         console.log('Uploaded a blob or file!');
     });
-    return (
-        <TouchableOpacity onPress={uploadBytes}
-              style={[LoginStyles.button, LoginStyles.buttonOutline]}
-            >
-              <Text style={LoginStyles.buttonOutlineText}>Upload</Text>
-        </TouchableOpacity>
-    );
+
+    
 }
 
 export default uploadImage();

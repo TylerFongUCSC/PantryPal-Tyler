@@ -17,6 +17,7 @@ import {
 } from 'react-native';
 import { viewStyle, buttonStyle, textStyle, textInputStyle } from '../STYLES/styles.js';
 import { ScrollView } from 'react-native-gesture-handler';
+import GalleryPicker from './ImagePicker.js';
 
 const MAX_RECIPE_NAME_LENGTH = 32; // Set the maximum length for the recipe name
 
@@ -129,6 +130,11 @@ const RecipeModal = ({
         }   
     };
 
+    // Add Image Functionality
+    const handleAddImage = (imageURI) => {
+        GalleryPicker.
+    }
+
     const handleDismissKeyboard = () => {
         Keyboard.dismiss(); // This will dismiss the keyboard when you tap away from the TextInput
     };
@@ -208,6 +214,23 @@ const RecipeModal = ({
                             </View>
                         )}
                     </ScrollView>
+
+                    {isEditing ? (
+                        // Button to add an image
+                        <Pressable
+                            onPress={saveEditing}
+                        >
+                            <Text style={textStyle.body}>Upload Image</Text>
+                        </Pressable>
+                    ) : (
+                        // Some kind of View/other component to show the image in display mode
+                        <Pressable
+                            style={buttonStyle.editRecipe}
+                            onPress={handleAddImage}
+                        >
+                            <Text style={textStyle.body}>Edit</Text>
+                        </Pressable>
+                    )}
 
                     {isEditing ? (
                         <Pressable
